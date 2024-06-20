@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/magazine/static/css/main.fe27a139.css",
+    "main.js": "/magazine/static/js/main.5549e8c3.js",
+    "index.html": "/magazine/index.html",
+    "main.5549e8c3.js.map": "/magazine/static/js/main.5549e8c3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fe27a139.css",
+    "static/js/main.5549e8c3.js"
+  ]
+}
