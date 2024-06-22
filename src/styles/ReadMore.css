@@ -1,0 +1,15 @@
+.read-more-text {
+    max-width: 600px; /* Set your desired maximum width here */
+    margin: 0 auto;
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+  }
+  
+  .read-more-link {
+    color: #007bff;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  

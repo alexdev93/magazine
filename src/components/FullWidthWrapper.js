@@ -1,5 +1,8 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import AdPlaceholders from './AdPlaceholders';
+import Header from './Header';
+import Footer from './Footer'
+import { Box, Typography } from '@mui/material';
 
 const FullWidthWrapper = ({ children }) => {
     return (
@@ -13,7 +16,17 @@ const FullWidthWrapper = ({ children }) => {
           },
         }}
       >
+        <AdPlaceholders />
+        <Typography variant="h4" component="h1" align="center" sx=
+        {{
+          padding: 1
+        }}
+        gutterBottom>
+        Kegeberew RealEstate
+      </Typography>
+      <Header/>
         {children}
+        <Footer/>
       </Box>
     );
   };

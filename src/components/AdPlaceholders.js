@@ -4,7 +4,7 @@ import { adPlaceholderStyle, adImageStyle } from '../styles/mui.style';
 
 const AdPlaceholders = () => {
   return (
-    <Box sx={{ flexGrow: 1, marginTop: 2 }}>
+    <Box sx={{ flexGrow: 1, margin: 1 }}>
       <Grid container spacing={2}>
         <Grid item xs={12} md={4}>
           <Box sx={adPlaceholderStyle}>

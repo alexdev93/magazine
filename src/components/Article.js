@@ -1,23 +1,20 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Grid, Card, CardMedia, CardContent, Typography, Chip, IconButton } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import { useMediaQuery } from '@mui/material';
-import { getArticles } from '../services/api';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { getArticles } from '../services/api.service';
 
 const Article = () => {
   let imageUrl = "https://cdn.jsdelivr.net/gh/alexdev93/kegeberew-photo-gallery";
   const [articles, setArticles] = useState([]);
-  const theme = useTheme();
-  const isTabletOrSmaller = useMediaQuery(theme.breakpoints.down('md'));
-  const scrollRef = useRef(null); // Ref to the scrollable container
+  const scrollRef = useRef(null);
 
   useEffect(() => {
-    getArticles().then(data => {
-      const reversedData = data.reverse();
-      setArticles(reversedData);
-    });
+    async function fetchArticles() {
+      const articlesData = await getArticles();
+      setArticles(articlesData);
+    }
+    fetchArticles();
   }, []);
 
   // Function to scroll cards to the left
@@ -55,7 +52,7 @@ const Article = () => {
               <div style={{ position: 'relative', width: '100%' }}>
                 <CardMedia
                   component="img"
-                  height="140"
+                  height="200" // Custom height for the main article image
                   image={`${imageUrl}/${articles[0].image}`}
                   alt={articles[0].title}
                   sx={{ minWidth: 300, maxWidth: 400}}
@@ -75,7 +72,11 @@ const Article = () => {
                   {articles[0].title.toUpperCase()}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" gutterBottom>
-                  {articles[0].date && new Date(articles[0].date).toLocaleDateString()} | <a href="#" style={{ textDecoration: 'none', color: 'inherit' }}>Read More</a>
+                  {articles[0].content.substring(0, 150)}... {/* Display first 150 characters of content */}
+                  <a href="#" style={{ textDecoration: 'none', color: 'inherit' }}>Read More</a>
+                </Typography>
+                <Typography variant="body2" color="textSecondary">
+                  {articles[0].date && new Date(articles[0].date).toLocaleDateString()}
                 </Typography>
               </CardContent>
             </Card>
@@ -88,7 +89,7 @@ const Article = () => {
               display: 'flex',
               overflowX: 'auto',
               scrollBehavior: 'smooth',
-              height: '300px', // Fixed height for cards container
+              minHeight: '300px', // Fixed height for cards container
               position: 'relative', // Ensure relative positioning for absolute elements
               scrollbarWidth: 'none', // Firefox
               msOverflowStyle: 'none', // IE and Edge
@@ -104,7 +105,7 @@ const Article = () => {
                   maxWidth: 400, // Adjust card width as needed
                   flex: '0 0 auto',
                   marginRight: 2, // Adjust spacing between cards
-                  height: '100%',
+                  minHeight: '100%',
                   border: 'none',
                   borderRadius: '0',
                   boxShadow: 'none'
@@ -113,7 +114,7 @@ const Article = () => {
                 <div style={{ position: 'relative', width: '100%', height: '140px' }}>
                   <CardMedia
                     component="img"
-                    height="140"
+                    height="180" // Custom height for the rest of the article images
                     image={`${imageUrl}/${article.image}`}
                     alt={article.title}
                     sx={{ width: '100%' }}
@@ -133,7 +134,11 @@ const Article = () => {
                     {article.title.toUpperCase()}
                   </Typography>
                   <Typography variant="body2" color="textSecondary" gutterBottom>
-                    {article.date && new Date(article.date).toLocaleDateString()} | <a href="#" style={{ textDecoration: 'none', color: 'inherit' }}>Read More</a>
+                    {article.content.substring(0, 150)}... {/* Display first 150 characters of content */}
+                    <a href="#" style={{ textDecoration: 'none', color: 'inherit' }}>Read More</a>
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary">
+                    {article.date && new Date(article.date).toLocaleDateString()}
                   </Typography>
                 </CardContent>
               </Card>

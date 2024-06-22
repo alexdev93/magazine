@@ -1,17 +1,36 @@
 import React from 'react';
-import { Box, Typography, Paper } from '@mui/material';
+import Article from './Article'
+import Sidebar from './Sidebar'
+import { Grid, Container, useTheme, useMediaQuery, Typography } from '@mui/material';
 
-const MainContent = () => {
+const Main = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
+
+
   return (
-    <Box component={Paper} elevation={3} p={2} sx={{ height: '100%', borderRadius: 0 }}>
-      <Typography variant="h4" gutterBottom>
-        Main Content
-      </Typography>
-      <Typography variant="body1">
-        This is the main content area.
-      </Typography>
-    </Box>
+    <>
+      <Grid container>
+        <Grid item xs={12} md={9} style={{ position: 'relative' }}>
+          <Container sx={{
+            minHeight: '80vh',
+            borderBottom: isSmallScreen ? '1px solid black' : 'none',
+            borderRight: isSmallScreen ? 'none' : '1px solid black',
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'hidden',
+            marign: 0,
+            padding: 0,
+          }}
+          >
+            <Article />
+          </Container>
+        </Grid>
+       <Sidebar/>
+      </Grid>
+    </>
   );
-}
+};
 
-export default MainContent;
+export default Main;  

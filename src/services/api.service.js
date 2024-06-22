@@ -1,4 +1,3 @@
-// src/services/api.js
 const API_URL = 'http://localhost:5000/articles';
 
 export const getArticles = async () => {
