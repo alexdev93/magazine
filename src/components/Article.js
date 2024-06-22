@@ -4,15 +4,47 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { getArticles } from '../services/api.service';
 
+
+
 const Article = () => {
   let imageUrl = "https://cdn.jsdelivr.net/gh/alexdev93/kegeberew-photo-gallery";
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState([
+    
+    {
+      "id": "e4c0",
+      "title": "በጥፋተኝነት ላይ ያልተመሠረተ በአዋጁ ተካቷል አዋጁ የሚፀድቅ ከሆነ 10 ዓመት ወደኃላ ተመልሶ ተፈጻሚ",
+      "content": "for registering new customers on the kegeberew real state to orive iut asset for oire seleves anfd to builed for or lifes",
+      "image": "home2.jpg",
+      "author": "someone"
+    },
+    {
+      "id": "c5de",
+      "title": "በጥፋተኝነት ላይ ያልተመሠረተ ንብረት የመውረስ ድንጋጌም በአዋጁ ተካቷል አዋጁ የሚፀድቅ ከሆነ 10 ዓመት  ",
+      "content": "በጥፋተኝነት ላይ ያልተመሠረተ ንብረት የመውረስ ድንጋጌም በአዋጁ ተካቷል አዋጁ የሚፀድቅ ከሆነ 10 ዓመት ወደኃላ ተመልሶ ተፈጻሚ ይሆናል ከውጭ በተላከ ገንዘብ ሀብት አፍርቶ የተላከበትን ደረሰኝ ያላቀረበ ሰው ወይም ሊታወቅ ከሚችል ገቢው በላይ ሀብት አፍርቶ ምንጩ ሕጋዊ መሆኑን ማረጋገጥ ያልቻለ ሰው፣ ንብረት በመንግሥት",
+      "image": "home2.jpg",
+      "author": "someone fir dikel"
+    },
+    {
+      "id": "596b",
+      "title": "Update your App.js to include the Header",
+      "content": "በጥፋተኝነት ላይ ያልተመሠረተ ንብረት የመውረስ ድንጋጌም በአዋጁ ተካቷል አዋጁ የሚፀድቅ ከሆነ 10 ዓመት ወደኃላ ተመልሶ ተፈጻሚ ይሆናል ከውጭ በተላከ ገንዘብ ሀብት አፍርቶ የተላከበትን ደረሰኝ ያላቀረበ ሰው ወይም ሊታወቅ ከሚችል ገቢው በላይ ሀብት አፍርቶ ምንጩ ሕጋዊ መሆኑን ማረጋገጥ ያልቻለ ሰው፣ ንብረት በመንግሥት",
+      "image": "home3.jpg",
+      "author": "sd"
+    },
+    {
+      "id": "8ec5",
+      "title": "በጥፋተኝነት ላይ ያልተመሠረተ ንብረት የመውረስ ድንጋጌም በአዋጁ ተካቷል አዋጁ የሚፀድቅ ከሆነ 10 ዓመት ወደኃላ ተመልሶ ተፈጻሚ",
+      "content": "dfg sfdhg dfgh dfg hdfgh fg",
+      "image": "home2.jpg",
+      "author": "sdgf sdf"
+    }
+  ]);
   const scrollRef = useRef(null);
 
   useEffect(() => {
     async function fetchArticles() {
-      const articlesData = await getArticles();
-      setArticles(articlesData);
+      // const articlesData = await getArticles();
+      setArticles(articles);
     }
     fetchArticles();
   }, []);
