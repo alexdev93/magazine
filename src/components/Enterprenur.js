@@ -1,5 +1,6 @@
 import React from 'react';
 import { Paper, Grid, Typography, Card, CardMedia, CardContent, Box } from '@mui/material';
+import { styled } from '@mui/system';
 
 const adPlaceholderStyle = {
   height: 60,
@@ -16,12 +17,29 @@ const adImageStyle = {
   objectFit: 'cover',
 };
 
+const Header = styled(Box)(({ theme }) => ({
+  width: '100%',
+  padding: '10px 0',
+  position: 'relative',
+  '&::after': {
+    content: '""',
+    display: 'block',
+    width: '100%',
+    height: '2px',
+    backgroundColor: '#000',
+    marginTop: '5px',
+  },
+}));
 
 const Enterprenur = () => {
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} sx={{ margin: 5 }}>
+      <Header>
+        <Typography variant="h4">ስራ ፈጣሪዎች</Typography>
+      </Header>
+
       {/* First Grid Component (4-column) */}
-      <Grid item xs={4}>
+      <Grid item xs={12} md={4}>
         <Card style={{ minHeight: '300px' }}>
           {/* Content for the first card */}
           <CardMedia
@@ -42,16 +60,16 @@ const Enterprenur = () => {
       </Grid>
 
       {/* Second Grid Component (8-column) */}
-      <Grid item xs={8}>
+      <Grid item xs={12} md={8}>
         <Paper style={{ padding: 10 }}>
           <Grid container spacing={2}>
             {/* First sub-grid item (takes 3/4 of space) */}
-            <Grid item xs={9}>
+            <Grid item xs={12} lg={9}>
               <Card style={{ height: '100%' }}>
                 {/* Nested Grid for two cards side by side */}
                 <Grid container spacing={2}>
                   {/* First Card */}
-                  <Grid item xs={6}>
+                  <Grid item xs={12} sm={6}>
                     <Card style={{ height: '100%' }}>
                       {/* Content for the first card */}
                       <CardMedia
@@ -68,7 +86,7 @@ const Enterprenur = () => {
                     </Card>
                   </Grid>
                   {/* Second Card */}
-                  <Grid item xs={6}>
+                  <Grid item xs={12} sm={6}>
                     <Card style={{ height: '100%' }}>
                       {/* Content for the second card */}
                       <CardMedia
@@ -88,7 +106,7 @@ const Enterprenur = () => {
               </Card>
             </Grid>
             {/* Second sub-grid item (takes 1/4 of space) */}
-            <Grid item xs={3}>
+            <Grid item xs={12} lg={3}>
               <Card style={{ height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <CardMedia
                   component="img"
@@ -99,7 +117,7 @@ const Enterprenur = () => {
               </Card>
             </Grid>
           </Grid>
-          <Grid container spacing={2}>
+          <Grid container spacing={2} sx={{ marginTop: 2 }}>
             <Grid item xs={12} md={6}>
               <Box sx={adPlaceholderStyle}>
                 <img src="https://cdn.jsdelivr.net/gh/alexdev93/kegeberew-photo-gallery/home2.jpg" alt="Ad Space 1" style={adImageStyle} />

@@ -9,7 +9,7 @@ import { getArticles } from '../services/api.service';
 const Article = () => {
   let imageUrl = "https://cdn.jsdelivr.net/gh/alexdev93/kegeberew-photo-gallery";
   const [articles, setArticles] = useState([
-    
+
     {
       "id": "e4c0",
       "title": "በጥፋተኝነት ላይ ያልተመሠረተ በአዋጁ ተካቷል አዋጁ የሚፀድቅ ከሆነ 10 ዓመት ወደኃላ ተመልሶ ተፈጻሚ",
@@ -68,18 +68,26 @@ const Article = () => {
       <Grid container spacing={2} maxWidth="xl" style={{ width: '100%', padding: 0, margin: 0, overflowX: 'hidden' }}>
         {articles.length > 0 && (
           <Grid item xs={12}>
-            <Card sx={{ width: '100%', marginBottom: 2, 
-                  display: 'flex',
-                  border: 'none',
-                  borderRadius: '0',
-                  boxShadow: 'none' }}>
+            <Card
+              sx={{
+                width: '90%',
+                marginBottom: 2,
+                display: 'flex',
+                flexDirection: { xs: 'column', md: 'row' },
+                border: 'none',
+                borderRadius: '0',
+                boxShadow: 'none',
+                position: 'relative', // Added to ensure Chip is positioned correctly
+              }}
+            >
               <Chip
                 label="Latest News"
                 color="primary"
-                sx={{ 
-                  position: 'absolute', 
-                  zIndex: 1, 
-                  margin: '10px' }}
+                sx={{
+                  position: 'absolute',
+                  zIndex: 1,
+                  margin: '10px',
+                }}
               />
               <div style={{ position: 'relative', width: '100%' }}>
                 <CardMedia
@@ -87,17 +95,19 @@ const Article = () => {
                   height="200" // Custom height for the main article image
                   image={`${imageUrl}/${articles[0].image}`}
                   alt={articles[0].title}
-                  sx={{ minWidth: 300, maxWidth: 400}}
+                  sx={{ minWidth: 300, maxWidth: 350 }}
                 />
-                <div style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  backgroundColor: 'rgba(255, 255, 255, 0.3)',
-                  zIndex: 2,
-                }} />
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                    zIndex: 2,
+                  }}
+                />
               </div>
               <CardContent sx={{ flexGrow: 1 }}>
                 <Typography variant="h5" component="div" gutterBottom>
@@ -105,7 +115,9 @@ const Article = () => {
                 </Typography>
                 <Typography variant="body2" color="textSecondary" gutterBottom>
                   {articles[0].content.substring(0, 150)}... {/* Display first 150 characters of content */}
-                  <a href="#" style={{ textDecoration: 'none', color: 'inherit' }}>Read More</a>
+                  <a href="#" style={{ textDecoration: 'none', color: 'inherit' }}>
+                    Read More
+                  </a>
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
                   {articles[0].date && new Date(articles[0].date).toLocaleDateString()}
@@ -134,7 +146,7 @@ const Article = () => {
                 key={article.id}
                 sx={{
                   minWidth: 300, // Adjust card width as needed
-                  maxWidth: 400, // Adjust card width as needed
+                  maxWidth: 300, // Adjust card width as needed
                   flex: '0 0 auto',
                   marginRight: 2, // Adjust spacing between cards
                   minHeight: '100%',

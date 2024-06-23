@@ -1,6 +1,21 @@
 import React from 'react';
-import { List, ListItem, Container, Grid, useMediaQuery, useTheme } from '@mui/material';
+import { List, ListItem, Container, Grid, useMediaQuery, useTheme, Box, Typography } from '@mui/material';
 import PhotoWithText from '../components/PhotoWithText';
+import {styled} from '@mui/system';
+
+const Header = styled(Box)(({ theme }) => ({
+  width: '100%',
+  padding: '20px',
+  position: 'relative',
+  '&::after': {
+    content: '""',
+    display: 'block',
+    width: '100%',
+    height: '2px',
+    backgroundColor: '#000', // Adjust color as needed
+    marginTop: '5px',
+  },
+}));
 
 const Sidebar = () => {
   const theme = useTheme();
@@ -8,6 +23,9 @@ const Sidebar = () => {
 
   return (
     <Grid item xs={12} md={3}>
+      <Header>
+          <Typography variant="h4">የሚሸጡ ቤቶች</Typography>
+        </Header>
       <Container
         style={{
           padding: 10,

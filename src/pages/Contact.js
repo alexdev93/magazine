@@ -2,7 +2,7 @@
 import React from 'react';
 import { Container, Typography, Grid, TextField, Button, Divider } from '@mui/material';
 
-const Contact = () => {
+export const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic (e.g., send data to backend or display a message)

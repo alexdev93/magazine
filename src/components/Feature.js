@@ -2,11 +2,33 @@
 
 import React from 'react';
 import { Grid, Paper, Box, Button, Typography } from '@mui/material';
+import { styled } from '@mui/system';
+
+const Header = styled(Box)(({ theme }) => ({
+  width: '100%',
+  padding: '10px 0',
+  position: 'relative',
+  '&::after': {
+    content: '""',
+    display: 'block',
+    width: '100%',
+    height: '2px',
+    backgroundColor: '#000', // Adjust color as needed
+    marginTop: '5px',
+  },
+}));
+
 
 const Feature = () => {
+
+  // const classes = useStyles();
+
   return (
-    <Grid container spacing={2} sx={{ p: 2 }}>
+    <Grid container spacing={2} sx={{ p: 2, margin: 5 }}>
       <Grid item xs={12} sm={6} md={8}>
+        <Header>
+          <Typography variant="h4">Feature Video</Typography>
+        </Header>
         <Box
           sx={{
             display: 'flex',
@@ -45,6 +67,9 @@ const Feature = () => {
         </Box>
       </Grid>
       <Grid item xs={12} sm={6} md={4}>
+        <Header>
+          <Typography variant="h4">Our Published Magazine</Typography>
+        </Header>
         <Paper
           sx={{
             padding: 2,

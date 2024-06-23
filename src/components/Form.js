@@ -1,7 +1,22 @@
 import React, { useState } from 'react';
-import { Container, Grid, Typography } from '@mui/material';
+import { Container, Grid, Typography, Box } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { styled } from '@mui/system';
+
+const Header = styled(Box)(({ theme }) => ({
+  width: '100%',
+  padding: '10px 0',
+  position: 'relative',
+  '&::after': {
+    content: '""',
+    display: 'block',
+    width: '100%',
+    height: '2px',
+    backgroundColor: '#000', // Adjust color as needed
+    marginTop: '5px',
+  },
+}));
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -22,12 +37,12 @@ const Form = () => {
   };
 
   return (
-    <Container maxWidth="md" sx={{ marginTop: 4, marginBottom: 4 }}>
-      <Typography variant="h4" align="center" gutterBottom>
-        Contact Us
-      </Typography>
+    <Container sx={{ marginTop: 4, marginBottom: 4 }}>
+      <Header>
+          <Typography variant="h4">ይመዝገቡ</Typography>
+        </Header>
       <form onSubmit={handleSubmit}>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} maxWidth="md">
           <Grid item xs={12} sm={6}>
             <TextField
               fullWidth

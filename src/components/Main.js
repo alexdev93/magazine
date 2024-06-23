@@ -1,7 +1,8 @@
 import React from 'react';
 import Article from './Article'
 import Sidebar from './Sidebar'
-import { Grid, Container, useTheme, useMediaQuery, Typography } from '@mui/material';
+import Header from './Header'
+import { Grid, Container, useTheme, useMediaQuery } from '@mui/material';
 
 const Main = () => {
   const theme = useTheme();
@@ -13,6 +14,7 @@ const Main = () => {
     <>
       <Grid container>
         <Grid item xs={12} md={9} style={{ position: 'relative' }}>
+        <Header />
           <Container sx={{
             minHeight: '80vh',
             borderBottom: isSmallScreen ? '1px solid black' : 'none',
