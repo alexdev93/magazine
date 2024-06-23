@@ -4,7 +4,7 @@ import PhotoWithText from '../components/PhotoWithText';
 import {styled} from '@mui/system';
 
 const Header = styled(Box)(({ theme }) => ({
-  width: '100%',
+  width: '90%',
   padding: '20px',
   position: 'relative',
   '&::after': {

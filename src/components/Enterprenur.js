@@ -33,7 +33,7 @@ const Header = styled(Box)(({ theme }) => ({
 
 const Enterprenur = () => {
   return (
-    <Grid container spacing={2} sx={{ margin: 5 }}>
+    <Grid container spacing={2} sx={{ margin: 2 }}>
       <Header>
         <Typography variant="h4">ስራ ፈጣሪዎች</Typography>
       </Header>
