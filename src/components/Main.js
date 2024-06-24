@@ -1,23 +1,21 @@
 import React from 'react';
 import Article from './Article'
 import Sidebar from './Sidebar'
-import { Grid, Container, useTheme, useMediaQuery } from '@mui/material';
+import { Grid, Container} from '@mui/material';
 
 const Main = () => {
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <>
       <Grid container>
         <Grid item xs={12} md={9} style={{ position: 'relative' }}>
           <Container sx={{
-            minHeight: '80vh',
+            minHeight: '90vh',
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden',
-            marign: 0,
-            padding: 0,
+            margin: 0,
+            paddingBottom: 10,
           }}
           >
             <Article />
