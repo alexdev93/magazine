@@ -30,7 +30,7 @@ const Header = () => {
 
   return (
     <AppBar
-      position="static"
+      position="sticky"
       sx={{
         backgroundColor: 'white',
         color: 'black',

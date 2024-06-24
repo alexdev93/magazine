@@ -15,7 +15,7 @@ export const Home = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Box sx={{ width: isMobile ? '100%' : '95%' }}>
+    <Box sx={{ width: isMobile ? '100%' : '90%' }}>
       <Main />
       <AdPlaceholders />
       <Enterprenur />
