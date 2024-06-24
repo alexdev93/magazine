@@ -70,7 +70,7 @@ const Article = () => {
           <Grid item xs={12}>
             <Card
               sx={{
-                width: '90%',
+                width: '100%',
                 marginBottom: 2,
                 display: 'flex',
                 flexDirection: { xs: 'column', md: 'row' },
@@ -95,7 +95,7 @@ const Article = () => {
                   height="200" // Custom height for the main article image
                   image={`${imageUrl}/${articles[0].image}`}
                   alt={articles[0].title}
-                  sx={{ minWidth: 300, maxWidth: 350 }}
+                  sx={{ minWidth: 300, width: '100%' }}
                 />
                 <div
                   style={{

@@ -18,7 +18,7 @@ const Header = styled(Box)(({ theme }) => ({
 
 const MainArticleAndProjects = () => {
     return (
-        <Grid container spacing={2} sx={{ margin: 2 }}>
+        <Grid container  >
             <Grid item xs={12} md={7}>
                 <Header>
                     <Typography variant="h4">ዋና ዋና</Typography>
@@ -66,7 +66,7 @@ const MainArticleAndProjects = () => {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item xs={12} md={5}>
+            <Grid item xs={12} md={5} sx={{padding: 5}}>
                 <Header>
                     <Typography variant="h4">ፕሮጀክቶች</Typography>
                 </Header>

@@ -20,7 +20,7 @@ const Header = styled(Box)(({ theme }) => ({
 
 const TopProperties = () => {
   return (
-    <Grid container spacing={2} sx={{ margin: 2}}>
+    <Grid container spacing={2} sx={{ }}>
       <Header>
           <Typography variant="h4">Top Properties</Typography>
         </Header>

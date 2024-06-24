@@ -24,7 +24,7 @@ const Feature = () => {
   // const classes = useStyles();
 
   return (
-    <Grid container spacing={2} sx={{ p: 2, margin: 2 }}>
+    <Grid container spacing={6} sx={{ p: 2, marginBottom:5 }}>
       <Grid item xs={12} sm={6} md={8}>
         <Header>
           <Typography variant="h4">Feature Video</Typography>
