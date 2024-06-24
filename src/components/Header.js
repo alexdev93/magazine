@@ -29,7 +29,17 @@ const Header = () => {
   ];
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'white', color: 'black', boxShadow: 'none', border: 'none' }}>
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: 'white',
+        color: 'black',
+        boxShadow: 'none',
+        border: 'none',
+        borderTop: '1px solid lightgray',
+        borderBottom: '1px solid lightgray'
+      }}
+    >
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         {isMobile ? (
           <>

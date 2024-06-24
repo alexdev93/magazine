@@ -7,7 +7,7 @@ import { getArticles } from '../services/api.service';
 
 
 const Article = () => {
-  let imageUrl = "https://cdn.jsdelivr.net/gh/alexdev93/kegeberew-photo-gallery";
+  let imageUrl = "  ";
   const [articles, setArticles] = useState([
 
     {
@@ -21,7 +21,7 @@ const Article = () => {
       "id": "c5de",
       "title": "በጥፋተኝነት ላይ ያልተመሠረተ ንብረት የመውረስ ድንጋጌም በአዋጁ ተካቷል አዋጁ የሚፀድቅ ከሆነ 10 ዓመት  ",
       "content": "በጥፋተኝነት ላይ ያልተመሠረተ ንብረት የመውረስ ድንጋጌም በአዋጁ ተካቷል አዋጁ የሚፀድቅ ከሆነ 10 ዓመት ወደኃላ ተመልሶ ተፈጻሚ ይሆናል ከውጭ በተላከ ገንዘብ ሀብት አፍርቶ የተላከበትን ደረሰኝ ያላቀረበ ሰው ወይም ሊታወቅ ከሚችል ገቢው በላይ ሀብት አፍርቶ ምንጩ ሕጋዊ መሆኑን ማረጋገጥ ያልቻለ ሰው፣ ንብረት በመንግሥት",
-      "image": "home2.jpg",
+      "image": "home1.jpg",
       "author": "someone fir dikel"
     },
     {
@@ -94,7 +94,7 @@ const Article = () => {
                   component="img"
                   height="200" // Custom height for the main article image
                   image={`${imageUrl}/${articles[0].image}`}
-                  alt={articles[0].title}
+                  // alt={articles[0].title}
                   sx={{ minWidth: 300, width: '100%' }}
                 />
                 <div
@@ -160,7 +160,7 @@ const Article = () => {
                     component="img"
                     height="180" // Custom height for the rest of the article images
                     image={`${imageUrl}/${article.image}`}
-                    alt={article.title}
+                    // alt={article.title}
                     sx={{ width: '100%' }}
                   />
                   <div style={{
