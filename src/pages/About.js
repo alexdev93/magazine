@@ -2,7 +2,7 @@
 import React from 'react';
 import { Container, Typography, Divider } from '@mui/material';
 
-export const About = () => {
+const About = () => {
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
       <Typography variant="h4" gutterBottom>
@@ -22,3 +22,4 @@ export const About = () => {
   );
 };
 
+export default About;
