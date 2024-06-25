@@ -15,7 +15,14 @@ export const Home = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Box sx={{ width: isMobile ? '100%' : '90%' }}>
+    <Box
+      sx={{
+        width: isMobile ? '100%' : '90%',
+        '& > *:not(:last-child)': {
+          marginBottom: theme.spacing(10),
+        },
+      }}
+    >
       <Main />
       <AdPlaceholders />
       <Enterprenur />

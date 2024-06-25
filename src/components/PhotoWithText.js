@@ -1,11 +1,11 @@
 import React from 'react';
 import ReadMore from './ReadMore'
+import { Box, Card, CardMedia, CardContent, Typography} from '@mui/material'
 import '../styles/PhototWithText.css';
 
 const PhotoWithText = () => {
   const photo = {
     url: 'https://picsum.photos/600/400?image=10',
-    title: 'Beautiful Landscape',
   };
 
   const article = {
@@ -14,16 +14,22 @@ const PhotoWithText = () => {
   };
 
   return (
-    <div className="photo-with-text">
-              <div className="photo-section">
-                <img src={photo.url} alt={photo.title} className="photo" />
-                <h2>{photo.title}</h2>
-              </div>
-              <div className="text-section">
-                <h3>{article.title}</h3>
-                <ReadMore text={article.body} maxLength={100} />
-              </div>
-            </div>
+    <Box sx={{ padding: 2 }}>
+    <Card sx={{ maxWidth: 345, margin: 'auto', boxShadow: 'none', border: '1px solid #ddd', borderRadius: 'none' }}>
+      <CardMedia
+        component="img"
+        height="140"
+        image={photo.url}
+        alt={photo.title}
+      />
+      <CardContent>
+        <Typography variant="h6" component="h6" gutterBottom>
+          {article.title}
+        </Typography>
+        <ReadMore text={article.body} maxLength={100} />
+      </CardContent>
+    </Card>
+  </Box>
   );
 };
 

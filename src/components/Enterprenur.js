@@ -33,14 +33,18 @@ const Header = styled(Box)(({ theme }) => ({
 
 const Enterprenur = () => {
   return (
-    <Grid container spacing={2} sx={{padding: 2}}>
+    <Grid container spacing={2} sx={{ padding: 2 }}>
       <Header>
         <Typography variant="h4">ስራ ፈጣሪዎች</Typography>
       </Header>
 
       {/* First Grid Component (4-column) */}
       <Grid item xs={12} md={4}>
-        <Card style={{ minHeight: '300px' }}>
+        <Card style={{ minHeight: '100%' }} sx={{
+          border: 'none',
+          borderRadius: '0',
+          boxShadow: 'none'
+        }}>
           {/* Content for the first card */}
           <CardMedia
             component="img"
@@ -53,7 +57,7 @@ const Enterprenur = () => {
               Card 1
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmodLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
             </Typography>
           </CardContent>
         </Card>
@@ -65,7 +69,9 @@ const Enterprenur = () => {
           <Grid container spacing={2}>
             {/* First sub-grid item (takes 3/4 of space) */}
             <Grid item xs={12} lg={9}>
-              <Card style={{ height: '100%' }}>
+              <Card style={{ height: '100%' }} sx={{border: 'none',
+                  borderRadius: '0',
+                  boxShadow: 'none'}}>
                 {/* Nested Grid for two cards side by side */}
                 <Grid container spacing={2}>
                   {/* First Card */}

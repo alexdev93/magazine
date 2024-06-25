@@ -10,7 +10,9 @@ const Layout = ({ children }) => {
       <AdPlaceholders />
         <Typography variant="h4" component="h1" align="center" sx=
           {{
-            padding: 1
+            padding: 1,
+            fontWeight: 700, 
+            letterSpacing: '0.1em',
           }}
           gutterBottom>
           Kegeberew RealEstate

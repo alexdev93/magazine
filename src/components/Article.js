@@ -2,9 +2,16 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Grid, Card, CardMedia, CardContent, Typography, Chip, IconButton } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { getArticles } from '../services/api.service';
 
-
+const cardsContent = {
+  transition: 'all 0.1s ease',
+  fontWeight: 600,
+  '&:hover': {
+    fontWeight: 500,
+    textDecoration: 'underline',
+    color: '#000',
+  },
+};
 
 const Article = () => {
   let imageUrl = "  ";
@@ -47,7 +54,7 @@ const Article = () => {
       setArticles(articles);
     }
     fetchArticles();
-  }, []);
+  }, [articles]);
 
   // Function to scroll cards to the left
   const scrollLeft = () => {
@@ -110,7 +117,7 @@ const Article = () => {
                 />
               </div>
               <CardContent sx={{ flexGrow: 1 }}>
-                <Typography variant="h5" component="div" gutterBottom>
+                <Typography variant="h5" component="div" sx={cardsContent} gutterBottom>
                   {articles[0].title.toUpperCase()}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" gutterBottom>
@@ -174,7 +181,7 @@ const Article = () => {
                   }} />
                 </div>
                 <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography variant="h5" component="div" gutterBottom>
+                  <Typography variant="h5" component="div" sx={cardsContent} gutterBottom>
                     {article.title.toUpperCase()}
                   </Typography>
                   <Typography variant="body2" color="textSecondary" gutterBottom>
