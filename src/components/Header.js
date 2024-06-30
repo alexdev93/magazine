@@ -11,6 +11,7 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -54,8 +55,13 @@ const Header = () => {
             <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>
               <List>
                 {menuItems.map((item) => (
-                  <ListItem key={item.text} button component="a" href={item.link} onClick={toggleDrawer}>
-                    <ListItemText primary={item.text} sx={{fontWeight: 700}}/>
+                  <ListItem key={item.text} button onClick={toggleDrawer}>
+                    <Link
+                      to={item.link}
+                      style={{ cursor: 'pointer', fontWeight: 700 }}
+                    >
+                      {item.text}
+                    </Link>
                   </ListItem>
                 ))}
               </List>
@@ -67,10 +73,14 @@ const Header = () => {
               <Button
                 key={item.text}
                 color="inherit"
-                href={item.link}
                 sx={{ marginRight: index < menuItems.length - 1 ? 2 : 0, fontWeight: 600 }}
               >
-                {item.text}
+                <Link
+                  to={item.link}
+                  style={{ cursor: 'pointer', fontWeight: 700 }}
+                >
+                  {item.text}
+                </Link>
               </Button>
             ))}
           </Box>
