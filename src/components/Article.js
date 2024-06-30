@@ -20,6 +20,8 @@ const Article = () => {
   const { articles } = state;
   const scrollRef = useRef(null);
 
+  const reversedArticles = [...articles].reverse();
+
   const scrollLeft = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollLeft -= 300;
@@ -35,7 +37,7 @@ const Article = () => {
   return (
     <div style={{ overflowX: 'hidden' }}>
       <Grid container spacing={2} maxWidth="xl" style={{ width: '100%', padding: 0, margin: 0 }}>
-        {articles.length > 0 && (
+        {reversedArticles.length > 0 && (
           <Grid item xs={12}>
             <Card
               sx={{
@@ -62,7 +64,7 @@ const Article = () => {
                 <CardMedia
                   component="img"
                   height="200"
-                  image={articles[0].imagePath}
+                  image={reversedArticles[0].imagePath}
                   sx={{ minWidth: 300, width: '100%' }}
                 />
                 <div
@@ -80,23 +82,23 @@ const Article = () => {
               <CardContent sx={{ flexGrow: 1 }}>
                 <Typography variant="h5" component="div" sx={cardsContent} gutterBottom>
                   <Link
-                    to={`/article/${articles[0].id}`}
+                    to={`/article/${reversedArticles[0].id}`}
                     style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
                   >
-                    {articles[0].title.toUpperCase()}
+                    {reversedArticles[0].title.toUpperCase()}
                   </Link>
                 </Typography>
                 <Typography variant="body2" color="textSecondary" gutterBottom>
-                  {articles[0].content.substring(0, 150)}...
+                  {reversedArticles[0].content.substring(0, 150)}...
                   <Link
-                    to={`/article/${articles[0].id}`}
+                    to={`/article/${reversedArticles[0].id}`}
                     style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
                   >
                     Read More
                   </Link>
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  {articles[0].releaseDate && new Date(articles[0].releaseDate).toLocaleDateString()}
+                  {reversedArticles[0].releaseDate && new Date(reversedArticles[0].releaseDate).toLocaleDateString()}
                 </Typography>
               </CardContent>
             </Card>
@@ -116,7 +118,7 @@ const Article = () => {
             }}
             className="scrollable-container"
           >
-            {articles.slice(1).map((article) => (
+            {reversedArticles.slice(1).map((article) => (
               <Card
                 key={article.id}
                 sx={{
