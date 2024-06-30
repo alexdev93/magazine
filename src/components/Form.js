@@ -12,7 +12,7 @@ const Header = styled(Box)(({ theme }) => ({
     content: '""',
     display: 'block',
     width: '100%',
-    height: '2px',
+    height: '5px',
     backgroundColor: '#000', // Adjust color as needed
     marginTop: '5px',
   },

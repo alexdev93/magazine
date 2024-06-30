@@ -1,7 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Grid, Card, CardMedia, CardContent, Typography, Chip, IconButton } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { Link } from 'react-router-dom';
+import { useAppContext } from '../AppContext';
 
 const cardsContent = {
   transition: 'all 0.1s ease',
@@ -14,65 +16,25 @@ const cardsContent = {
 };
 
 const Article = () => {
-  let imageUrl = "  ";
-  const [articles, setArticles] = useState([
-
-    {
-      "id": "e4c0",
-      "title": "በጥፋተኝነት ላይ ያልተመሠረተ በአዋጁ ተካቷል አዋጁ የሚፀድቅ ከሆነ 10 ዓመት ወደኃላ ተመልሶ ተፈጻሚ",
-      "content": "for registering new customers on the kegeberew real state to orive iut asset for oire seleves anfd to builed for or lifes",
-      "image": "home2.jpg",
-      "author": "someone"
-    },
-    {
-      "id": "c5de",
-      "title": "በጥፋተኝነት ላይ ያልተመሠረተ ንብረት የመውረስ ድንጋጌም በአዋጁ ተካቷል አዋጁ የሚፀድቅ ከሆነ 10 ዓመት  ",
-      "content": "በጥፋተኝነት ላይ ያልተመሠረተ ንብረት የመውረስ ድንጋጌም በአዋጁ ተካቷል አዋጁ የሚፀድቅ ከሆነ 10 ዓመት ወደኃላ ተመልሶ ተፈጻሚ ይሆናል ከውጭ በተላከ ገንዘብ ሀብት አፍርቶ የተላከበትን ደረሰኝ ያላቀረበ ሰው ወይም ሊታወቅ ከሚችል ገቢው በላይ ሀብት አፍርቶ ምንጩ ሕጋዊ መሆኑን ማረጋገጥ ያልቻለ ሰው፣ ንብረት በመንግሥት",
-      "image": "home1.jpg",
-      "author": "someone fir dikel"
-    },
-    {
-      "id": "596b",
-      "title": "Update your App.js to include the Header",
-      "content": "በጥፋተኝነት ላይ ያልተመሠረተ ንብረት የመውረስ ድንጋጌም በአዋጁ ተካቷል አዋጁ የሚፀድቅ ከሆነ 10 ዓመት ወደኃላ ተመልሶ ተፈጻሚ ይሆናል ከውጭ በተላከ ገንዘብ ሀብት አፍርቶ የተላከበትን ደረሰኝ ያላቀረበ ሰው ወይም ሊታወቅ ከሚችል ገቢው በላይ ሀብት አፍርቶ ምንጩ ሕጋዊ መሆኑን ማረጋገጥ ያልቻለ ሰው፣ ንብረት በመንግሥት",
-      "image": "home3.jpg",
-      "author": "sd"
-    },
-    {
-      "id": "8ec5",
-      "title": "በጥፋተኝነት ላይ ያልተመሠረተ ንብረት የመውረስ ድንጋጌም በአዋጁ ተካቷል አዋጁ የሚፀድቅ ከሆነ 10 ዓመት ወደኃላ ተመልሶ ተፈጻሚ",
-      "content": "dfg sfdhg dfgh dfg hdfgh fg",
-      "image": "home2.jpg",
-      "author": "sdgf sdf"
-    }
-  ]);
+  const { state } = useAppContext();
+  const { articles } = state;
   const scrollRef = useRef(null);
 
-  useEffect(() => {
-    async function fetchArticles() {
-      // const articlesData = await getArticles();
-      setArticles(articles);
-    }
-    fetchArticles();
-  }, [articles]);
-
-  // Function to scroll cards to the left
   const scrollLeft = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollLeft -= 300; // Adjust scroll distance as needed
+      scrollRef.current.scrollLeft -= 300;
     }
   };
 
-  // Function to scroll cards to the right
   const scrollRight = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollLeft += 300; // Adjust scroll distance as needed
+      scrollRef.current.scrollLeft += 300;
     }
   };
 
   return (
     <div style={{ overflowX: 'hidden' }}>
-      <Grid container spacing={2} maxWidth="xl" style={{ width: '100%', padding: 0, margin: 0, overflowX: 'hidden' }}>
+      <Grid container spacing={2} maxWidth="xl" style={{ width: '100%', padding: 0, margin: 0 }}>
         {articles.length > 0 && (
           <Grid item xs={12}>
             <Card
@@ -82,9 +44,9 @@ const Article = () => {
                 display: 'flex',
                 flexDirection: { xs: 'column', md: 'row' },
                 border: 'none',
-                borderRadius: '0',
+                borderRadius: 0,
                 boxShadow: 'none',
-                position: 'relative', // Added to ensure Chip is positioned correctly
+                position: 'relative',
               }}
             >
               <Chip
@@ -99,9 +61,8 @@ const Article = () => {
               <div style={{ position: 'relative', width: '100%' }}>
                 <CardMedia
                   component="img"
-                  height="200" // Custom height for the main article image
-                  image={`${imageUrl}/${articles[0].image}`}
-                  // alt={articles[0].title}
+                  height="200"
+                  image={articles[0].imagePath}
                   sx={{ minWidth: 300, width: '100%' }}
                 />
                 <div
@@ -118,16 +79,24 @@ const Article = () => {
               </div>
               <CardContent sx={{ flexGrow: 1 }}>
                 <Typography variant="h5" component="div" sx={cardsContent} gutterBottom>
-                  {articles[0].title.toUpperCase()}
+                  <Link
+                    to={`/article/${articles[0].id}`}
+                    style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
+                  >
+                    {articles[0].title.toUpperCase()}
+                  </Link>
                 </Typography>
                 <Typography variant="body2" color="textSecondary" gutterBottom>
-                  {articles[0].content.substring(0, 150)}... {/* Display first 150 characters of content */}
-                  <a href="#" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  {articles[0].content.substring(0, 150)}...
+                  <Link
+                    to={`/article/${articles[0].id}`}
+                    style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
+                  >
                     Read More
-                  </a>
+                  </Link>
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  {articles[0].date && new Date(articles[0].date).toLocaleDateString()}
+                  {articles[0].releaseDate && new Date(articles[0].releaseDate).toLocaleDateString()}
                 </Typography>
               </CardContent>
             </Card>
@@ -140,62 +109,58 @@ const Article = () => {
               display: 'flex',
               overflowX: 'auto',
               scrollBehavior: 'smooth',
-              minHeight: '300px', // Fixed height for cards container
-              position: 'relative', // Ensure relative positioning for absolute elements
-              scrollbarWidth: 'none', // Firefox
-              msOverflowStyle: 'none', // IE and Edge
+              minHeight: '300px',
+              position: 'relative',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
             }}
-            // Hide scrollbar in Webkit-based browsers
             className="scrollable-container"
           >
-            {articles.slice(1).map((article, index) => (
+            {articles.slice(1).map((article) => (
               <Card
                 key={article.id}
                 sx={{
-                  minWidth: 300, // Adjust card width as needed
-                  maxWidth: 300, // Adjust card width as needed
+                  minWidth: 300,
+                  maxWidth: 300,
                   flex: '0 0 auto',
-                  marginRight: 2, // Adjust spacing between cards
+                  marginRight: 2,
                   minHeight: '100%',
                   border: 'none',
-                  borderRadius: '0',
-                  boxShadow: 'none'
+                  borderRadius: 0,
+                  boxShadow: 'none',
                 }}
               >
-                <div style={{ position: 'relative', width: '100%', height: '140px' }}>
-                  <CardMedia
-                    component="img"
-                    height="180" // Custom height for the rest of the article images
-                    image={`${imageUrl}/${article.image}`}
-                    // alt={article.title}
-                    sx={{ width: '100%' }}
-                  />
-                  <div style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    backgroundColor: 'rgba(255, 255, 255, 0.3)',
-                    zIndex: 2,
-                  }} />
-                </div>
+                <CardMedia
+                  component="img"
+                  height="180"
+                  image={article.imagePath}
+                  sx={{ width: '100%', marginBottom: 2 }}
+                />
                 <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography variant="h5" component="div" sx={cardsContent} gutterBottom>
-                    {article.title.toUpperCase()}
+                  <Typography variant="h5" component="div" sx={{ ...cardsContent, marginBottom: 2 }}>
+                    <Link
+                      to={`/article/${article.id}`}
+                      style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
+                    >
+                      {article.title.toUpperCase()}
+                    </Link>
                   </Typography>
                   <Typography variant="body2" color="textSecondary" gutterBottom>
-                    {article.content.substring(0, 150)}... {/* Display first 150 characters of content */}
-                    <a href="#" style={{ textDecoration: 'none', color: 'inherit' }}>Read More</a>
+                    {article.content.substring(0, 150)}...
+                    <Link
+                      to={`/article/${article.id}`}
+                      style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
+                    >
+                      Read More
+                    </Link>
                   </Typography>
                   <Typography variant="body2" color="textSecondary">
-                    {article.date && new Date(article.date).toLocaleDateString()}
+                    {article.releaseDate && new Date(article.releaseDate).toLocaleDateString()}
                   </Typography>
                 </CardContent>
               </Card>
             ))}
           </div>
-          {/* Navigation icons */}
           <div style={{ position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)', zIndex: 2 }}>
             <IconButton aria-label="scroll left" onClick={scrollLeft}>
               <ArrowBackIosIcon />
@@ -210,7 +175,7 @@ const Article = () => {
       </Grid>
       <style jsx>{`
         .scrollable-container::-webkit-scrollbar {
-          display: none; // Hide scrollbar in Webkit-based browsers
+          display: none;
         }
       `}</style>
     </div>

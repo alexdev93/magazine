@@ -2,6 +2,7 @@
   "name": "real-estate-magazine",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://back-api-cvlq.onrender.com",
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
@@ -13,8 +14,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
     "date-fns": "^3.6.0",
-    "json-server": "^1.0.0-beta.1",
-    "prop-types": "^15.8.1",
+    "js-cookie": "^3.0.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-masonry-css": "^1.0.16",

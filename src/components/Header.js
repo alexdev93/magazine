@@ -22,7 +22,7 @@ const Header = () => {
   };
 
   const menuItems = [
-    { text: 'Home', link: '/magazine' },
+    { text: 'Home', link: '/' },
     { text: 'About', link: '/about' },
     { text: 'Contact', link: '/contact' },
     { text: 'Articles', link: '/articles' },

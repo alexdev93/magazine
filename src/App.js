@@ -1,25 +1,21 @@
 import React from 'react';
-import { Home } from './pages/Home';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Layout from './components/Layout';
 import '@fontsource/roboto';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import About from './pages/About';
-import Contact from './pages/Contact';
-// import Articles from './pages/Articles';
+import AppRoutes from './AppRoutes';
+import { AppProvider } from './AppContext';
 
-function App() {
+const App = () => {
   return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route exact path="/magazine" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          {/* <Route path="/articles" element={<Articles />} /> */}
-        </Routes>
-      </Layout>
-    </Router>
+    <AppProvider>
+      <Router>
+        <Layout>
+          <AppRoutes />
+        </Layout>
+      </Router>
+    </AppProvider>
   );
-}
+};
+
 
 export default App;

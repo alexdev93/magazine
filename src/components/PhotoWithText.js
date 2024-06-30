@@ -15,7 +15,7 @@ const PhotoWithText = () => {
 
   return (
     <Box sx={{ padding: 2 }}>
-    <Card sx={{ maxWidth: 345, margin: 'auto', boxShadow: 'none', border: '1px solid #ddd', borderRadius: 'none' }}>
+    <Card sx={{ width: '100%', margin: 'auto', boxShadow: 'none', border: '1px solid #ddd', borderRadius: 'none' }}>
       <CardMedia
         component="img"
         height="140"
