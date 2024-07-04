@@ -4,6 +4,8 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { Link } from 'react-router-dom';
 import { useAppContext } from '../AppContext';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const cardsContent = {
   transition: 'all 0.1s ease',
@@ -19,6 +21,8 @@ const Article = () => {
   const { state } = useAppContext();
   const { articles } = state;
   const scrollRef = useRef(null);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const reversedArticles = [...articles].reverse();
 
@@ -65,7 +69,7 @@ const Article = () => {
                   component="img"
                   height="200"
                   image={reversedArticles[0].imagePath}
-                  sx={{ minWidth: 300, width: '100%' }}
+                  sx={{ minWidth: '100%', width: '100%' }}
                 />
                 <div
                   style={{
@@ -122,8 +126,8 @@ const Article = () => {
               <Card
                 key={article.id}
                 sx={{
-                  minWidth: 300,
-                  maxWidth: 300,
+                  // minWidth: 300,
+                  width: isMobile ? '100%' : 300,
                   flex: '0 0 auto',
                   marginRight: 2,
                   minHeight: '100%',

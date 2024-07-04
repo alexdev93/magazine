@@ -1,10 +1,11 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { List, ListItem, Container, Grid, useMediaQuery, useTheme, Box, Typography } from '@mui/material';
 import PhotoWithText from '../components/PhotoWithText';
 import { styled } from '@mui/system';
+import { useAppContext } from '../AppContext';
 
 const Header = styled(Box)(({ theme }) => ({
-  width: '90%',
+  width: '100%', // Ensure full width
   padding: '20px',
   position: 'relative',
   '&::after': {
@@ -20,17 +21,22 @@ const Header = styled(Box)(({ theme }) => ({
 const Sidebar = () => {
   const theme = useTheme();
   const isMdScreen = useMediaQuery(theme.breakpoints.up('md'));
+  const { state, getHouses } = useAppContext();
+  const { houses } = state;
+
+  useEffect(() => {
+    getHouses();
+  }, [getHouses]);
 
   return (
-    <Grid item xs={12} md={3} sx={{
-      width: '100%'
-    }}>
+    <Grid item xs={12} md={3} sx={{ width: '100%' }}>
       <Header>
         <Typography variant="h4">የሚሸጡ ቤቶች</Typography>
       </Header>
       <Container
         style={{
-          padding: 10,
+          width: '100%', // Ensure full width
+          padding: '8px 0',
           overflowY: 'auto',
           maxHeight: isMdScreen ? '80vh' : 'unset', // Use maxHeight on medium screens and larger
           minHeight: isMdScreen ? 'unset' : '50vh', // Use minHeight on small screens
@@ -38,14 +44,12 @@ const Sidebar = () => {
           scrollbarColor: 'rgba(0, 0, 0, 0.2) transparent',  // For supported browsers
         }}
       >
-        <List>
-          <ListItem button>
-            <PhotoWithText />
+        <List sx={{ width: '100%' }}> {/* Ensure full width */}
+        {houses.map((house) => (
+          <ListItem sx={{ width: '100%' }}> {/* Ensure full width */}
+            <PhotoWithText house={house}/>
           </ListItem>
-          <ListItem button>
-            <PhotoWithText />
-          </ListItem>
-          {/* Add more ListItems as needed */}
+        ))}
         </List>
       </Container>
     </Grid>
